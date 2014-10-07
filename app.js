@@ -40,6 +40,7 @@ app.get(/.*/, function(req, res) {
   });
   proc.on('close', function(code) {
     console.log('exited: ' + code);
+    proc = null;
   });
   res.send('ok');
 });
