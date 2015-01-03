@@ -6,6 +6,10 @@ var child_process = require('child_process');
 var serverAddr = 'ksmythatv';
 var appleTvAddr = 'Apple-TV.local';
 
+app.get('/favicon.ico', function(req, res) {
+  res.status(404).end();
+});
+
 app.use('/_file/', express.static('./', {index: false}));
 
 app.use('/', function(req, res, next) {
