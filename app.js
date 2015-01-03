@@ -17,7 +17,7 @@ app.use('/', function(req, res, next) {
     fs.readdir('./' + unescape(req.path).substr(1), function(err, files) {
       var ret = '';
       for (var i = 0; i < files.length; i++) {
-         res.write('<a href="' + unescape(req.path).substr(1) + '/' + files[i] + '">' + files[i] + '</a><br/>');
+         res.write('<a href="/' + (req.path.length > 1 ? unescape(req.path).substr(1) + '/' : '') + files[i] + '">' + files[i] + '</a><br/>');
       }
       res.end();
     });
